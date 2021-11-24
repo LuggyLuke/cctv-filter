@@ -41,7 +41,7 @@ class ReolinkVideo:
             timestamp = datetime.strptime(
                 filename_parts[2], cls.REOLINK_TIMESTAMP_FORMAT
             )
-         except:
+        except:
             camera_name = os.environ["CAMERA_1"]
             camera_num = 01
             timestamp = datetime.strptime(
@@ -49,7 +49,7 @@ class ReolinkVideo:
             )
             logging.info("Filename format not as expected, returning generic format)
             
-         return camera_name, camera_num, timestamp      
+        return camera_name, camera_num, timestamp      
 
     @property
     def friendly_timestamp(self):
