@@ -85,7 +85,7 @@ class ReolinkVideo:
         return object.intersects(roi)
 
     def _is_accepted_detection(self, detection, roi=None):
-        logging.info(VALID_DETECTION_LABELS)
+        logging.info(self.VALID_DETECTION_LABELS)
         if detection.label not in self.VALID_DETECTION_LABELS:
             return False
         if roi is None:
