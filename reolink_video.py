@@ -43,7 +43,7 @@ class ReolinkVideo:
             )
         except:
             camera_name = os.environ["CAMERA_1"]
-            camera_num = 01
+            camera_num = "01"
             timestamp = datetime.strptime(
                 20000101010000, cls.REOLINK_TIMESTAMP_FORMAT
             )
