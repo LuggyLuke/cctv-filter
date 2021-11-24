@@ -13,7 +13,7 @@ from shapely.geometry import Polygon, box
 class ReolinkVideo:
     REOLINK_TIMESTAMP_FORMAT = "%Y%m%d%H%M%S"
     FRIENDLY_TIMESTAMP_FORMAT = "%Y-%m-%d %H-%M-%S"
-    VALID_DETECTION_LABELS = split_str(os.environ["VALID_DETECTION_LABELS"])
+    VALID_DETECTION_LABELS = os.environ["VALID_DETECTION_LABELS"].rsplit(", ")
 
     def __init__(
         self,
