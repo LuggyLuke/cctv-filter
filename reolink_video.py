@@ -14,7 +14,7 @@ class ReolinkVideo:
     REOLINK_TIMESTAMP_FORMAT = "%Y%m%d%H%M%S"
     FRIENDLY_TIMESTAMP_FORMAT = "%Y-%m-%d %H-%M-%S"
     VALID_DETECTION_LABELS = os.environ["VALID_DETECTION_LABELS"].rsplit(", ")
-    logging.info(VALID_DETECTION_LABELS)
+    
 
     def __init__(
         self,
@@ -85,6 +85,7 @@ class ReolinkVideo:
         return object.intersects(roi)
 
     def _is_accepted_detection(self, detection, roi=None):
+        logging.info(VALID_DETECTION_LABELS)
         if detection.label not in self.VALID_DETECTION_LABELS:
             return False
         if roi is None:
