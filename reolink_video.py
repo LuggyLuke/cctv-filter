@@ -47,7 +47,7 @@ class ReolinkVideo:
             timestamp = datetime.strptime(
                 20000101010000, cls.REOLINK_TIMESTAMP_FORMAT
             )
-            logging.info("Filename format not as expected, returning generic format)
+            logging.info("Filename format not as expected, returning generic format")
             
         return camera_name, camera_num, timestamp      
 
