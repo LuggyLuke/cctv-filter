@@ -34,13 +34,22 @@ class ReolinkVideo:
     @classmethod
     def split_reolink_filename(cls, filename: str):
         # Example: "Front Door_01_20210511082721"
-        filename_parts = filename.rsplit("_", 2)
-        camera_name = filename_parts[0]
-        camera_num = filename_parts[1]
-        timestamp = datetime.strptime(
-            filename_parts[2], cls.REOLINK_TIMESTAMP_FORMAT
-        )
-        return camera_name, camera_num, timestamp
+        try: 
+            filename_parts = filename.rsplit("_", 2)
+            camera_name = filename_parts[0]
+            camera_num = filename_parts[1]
+            timestamp = datetime.strptime(
+                filename_parts[2], cls.REOLINK_TIMESTAMP_FORMAT
+            )
+         except:
+            camera_name = os.environ["CAMERA_1"]
+            camera_num = 01
+            timestamp = datetime.strptime(
+                20000101010000, cls.REOLINK_TIMESTAMP_FORMAT
+            )
+            logging.info("Filename format not as expected, returning generic format)
+            
+         return camera_name, camera_num, timestamp      
 
     @property
     def friendly_timestamp(self):
