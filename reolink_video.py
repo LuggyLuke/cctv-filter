@@ -86,6 +86,7 @@ class ReolinkVideo:
 
     def _is_accepted_detection(self, detection, roi=None):
         logging.info(self.VALID_DETECTION_LABELS)
+        logging.info(detection.label)
         if detection.label not in self.VALID_DETECTION_LABELS:
             return False
         if roi is None:
